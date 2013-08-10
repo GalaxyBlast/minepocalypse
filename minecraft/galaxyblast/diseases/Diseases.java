@@ -11,12 +11,12 @@ public class Diseases
 {
 	private static Random rand = new Random();
 	
-	public static final Potion cold = new Potion(32, false, 0).setPotionName("The Common Cold").setIconIndex(3, 1);
+	/**public static final Potion cold = new Potion(32, false, 0).setPotionName("The Common Cold").setIconIndex(3, 1);
 	public static final Potion flu = new Potion(33, true, 0).setPotionName("The Flu").setIconIndex(3, 1);
 	public static final Potion rsv = new Potion(34, false, 0).setPotionName("RSV").setIconIndex(3, 1);
 	
 	public static final Potion asthma = new Potion(35, true, 0).setPotionName("Asthma");
-	public static final Potion infected = new Potion(36, true, 0).setPotionName("Infected");
+	public static final Potion infected = new Potion(36, true, 0).setPotionName("Infected");*/
 	
 	public static void updateDiseases(EntityPlayer par1)
 	{

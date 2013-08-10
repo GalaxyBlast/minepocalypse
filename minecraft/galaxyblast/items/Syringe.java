@@ -35,7 +35,7 @@ public class Syringe extends Item
 		}
 		else
 		{
-			par3EntityPlayer.addPotionEffect(new PotionEffect(Diseases.cold.id, 6000, 0));
+			//par3EntityPlayer.addPotionEffect(new PotionEffect(Diseases.cold.id, 6000, 0));
 		}
         return par1ItemStack;
     }

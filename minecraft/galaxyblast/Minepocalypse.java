@@ -2,6 +2,7 @@ package galaxyblast;
 
 import galaxyblast.blocks.InitBlocks;
 import galaxyblast.items.*;
+import galaxyblast.worldGen.worldGenOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -52,6 +53,8 @@ public class Minepocalypse
 	{
 		LocalizedNames.LocalizeNames();
 		InitBlocks.Init();
+		
+		GameRegistry.registerWorldGenerator(new worldGenOres());
 		
 		EntityRegistry.addSpawn(EntityZombie.class, 100, 2, 4, EnumCreatureType.monster, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.extremeHills);
 		EntityRegistry.addSpawn(EntityZombie.class, 80, 4, 8, EnumCreatureType.monster, BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills);
