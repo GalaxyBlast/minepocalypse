@@ -53,6 +53,7 @@ public class Minepocalypse
 	{
 		LocalizedNames.LocalizeNames();
 		InitBlocks.Init();
+		InitItems.Init();
 		
 		GameRegistry.registerWorldGenerator(new worldGenOres());
 		

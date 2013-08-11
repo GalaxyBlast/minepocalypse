@@ -4,6 +4,7 @@ import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraftforge.common.MinecraftForge;
 
 public class InitBlocks
 {
@@ -27,8 +28,18 @@ public class InitBlocks
 		
 		register();
 		name();
+		harvest();
 	}
 	
+	private static void harvest()
+	{
+		MinecraftForge.setBlockHarvestLevel(silver, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(titanium, "pickaxe", 3);
+		MinecraftForge.setBlockHarvestLevel(ruby, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(sapphire, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(tungsten, "pickaxe", 2);
+	}
+
 	private static void register()
 	{
 		GameRegistry.registerBlock(copper, "copper");
