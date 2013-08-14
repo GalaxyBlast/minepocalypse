@@ -10,5 +10,6 @@ public class LocalizedNames
 	{
 		LanguageRegistry.addName(a.syringe, "Syringe");
 		LanguageRegistry.addName(a.blood, "Blood Sample");
+		LanguageRegistry.instance().addStringLocalization("entity.Minepocalypse.RoamingSurvivor.name", "Roaming Survivor");
 	}
 }

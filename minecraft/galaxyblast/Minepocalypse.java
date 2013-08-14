@@ -2,6 +2,8 @@ package galaxyblast;
 
 import galaxyblast.blocks.InitBlocks;
 import galaxyblast.items.*;
+import galaxyblast.npcs.RoamingBandit;
+import galaxyblast.npcs.RoamingSurvivor;
 import galaxyblast.worldGen.worldGenOres;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -48,14 +50,28 @@ public class Minepocalypse
 	public static final Item syringe = new Syringe(15000).setCreativeTab(CreativeTabs.tabMisc).setUnlocalizedName("syringe");
 	public static final Item blood = new Syringe(15001).setUnlocalizedName("blood");
 	
+	static int startEntityId = 310;
+	
 	@EventHandler
 	public void load(FMLInitializationEvent event)
 	{
+		proxy.registerRenderThings();
 		LocalizedNames.LocalizeNames();
 		InitBlocks.Init();
 		InitItems.Init();
 		
 		GameRegistry.registerWorldGenerator(new worldGenOres());
+
+		EntityRegistry.registerModEntity(RoamingSurvivor.class, "RoamingSurvivor", 1, this, 80, 3, true);
+		EntityRegistry.registerModEntity(RoamingBandit.class, "RoamingBandit", 1, this, 80, 3, true);
+		
+		EntityRegistry.addSpawn(RoamingSurvivor.class, 1, 3, 1, EnumCreatureType.ambient, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.extremeHills,
+				BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills);
+		EntityRegistry.addSpawn(RoamingBandit.class, 1, 3, 1, EnumCreatureType.ambient, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.extremeHills,
+						BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills);
+		
+		registerEntityEgg(RoamingSurvivor.class, 0xffffff, 0x000000);
+		registerEntityEgg(RoamingBandit.class, 0xffffff, 0x000000);
 		
 		EntityRegistry.addSpawn(EntityZombie.class, 100, 2, 4, EnumCreatureType.monster, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.extremeHills);
 		EntityRegistry.addSpawn(EntityZombie.class, 80, 4, 8, EnumCreatureType.monster, BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills);
@@ -69,5 +85,22 @@ public class Minepocalypse
 		
 		//spiders
 		EntityRegistry.addSpawn(EntitySpider.class, 65, 2, 4, EnumCreatureType.monster, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.extremeHills, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills);
+	}
+	
+	public static int getUniqueEntityId() 
+	{
+		do 
+		{
+			startEntityId++;
+		}
+		while (EntityList.getStringFromID(startEntityId) != null);
+			return startEntityId;
+	}
+	 
+	public static void registerEntityEgg(Class<? extends Entity> entity, int primaryColor, int secondaryColor) 
+	{
+		int id = getUniqueEntityId();
+		EntityList.IDtoClassMapping.put(id, entity);
+		EntityList.entityEggs.put(id, new EntityEggInfo(id, primaryColor, secondaryColor));
 	}
 }
