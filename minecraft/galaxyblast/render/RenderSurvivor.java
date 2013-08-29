@@ -36,7 +36,7 @@ public class RenderSurvivor extends RenderBiped
 	@Override
 	protected ResourceLocation func_110775_a(Entity entity)
 	{
-		return new ResourceLocation("textures/entity/steve.png");
+		return new ResourceLocation("textures/entity/survivor.png");
 	}
 
 }

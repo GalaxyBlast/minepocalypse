@@ -33,7 +33,7 @@ import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-@Mod(modid = "Minepocalypse", name = "§5Minepocalypse", version = "0.2.5")
+@Mod(modid = "Minepocalypse", name = "§5Minepocalypse", version = "§4Alpha §r0.2.5")
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
 public class Minepocalypse
 {
@@ -43,7 +43,6 @@ public class Minepocalypse
 	public static Minepocalypse instance = new Minepocalypse();
 	
 	@SidedProxy(clientSide = "galaxyblast.ClientProxy", serverSide = "galaxyblast.CommonProxy")
-	
 	public static CommonProxy proxy;
 	
 	//items
@@ -70,8 +69,8 @@ public class Minepocalypse
 		EntityRegistry.addSpawn(RoamingBandit.class, 1, 3, 1, EnumCreatureType.ambient, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.extremeHills,
 						BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills);
 		
-		registerEntityEgg(RoamingSurvivor.class, 0xffffff, 0x000000);
-		registerEntityEgg(RoamingBandit.class, 0xffffff, 0x000000);
+		registerEntityEgg(RoamingSurvivor.class, 0x004ecf, 0x462e00);
+		registerEntityEgg(RoamingBandit.class, 0x004ecf, 0x000000);
 		
 		EntityRegistry.addSpawn(EntityZombie.class, 100, 2, 4, EnumCreatureType.monster, BiomeGenBase.swampland, BiomeGenBase.plains, BiomeGenBase.extremeHills);
 		EntityRegistry.addSpawn(EntityZombie.class, 80, 4, 8, EnumCreatureType.monster, BiomeGenBase.plains, BiomeGenBase.forest, BiomeGenBase.forestHills, BiomeGenBase.jungle, BiomeGenBase.jungleHills);
